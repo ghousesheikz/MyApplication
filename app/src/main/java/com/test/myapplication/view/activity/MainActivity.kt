@@ -59,9 +59,11 @@ class MainActivity : AppCompatActivity() {
                 if (!mRatingFlag) {
                     GetRatingDataFromDb(this, "asc").execute()
                     mRatingFlag = true;
+                    RatingSort.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_down, 0)
                 } else {
                     GetRatingDataFromDb(this, "desc").execute()
                     mRatingFlag = false
+                    RatingSort.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_up, 0)
                 }
             } catch (e: java.lang.Exception) {
                 e.stackTrace
@@ -73,9 +75,11 @@ class MainActivity : AppCompatActivity() {
                 if (!mDatesFlag) {
                     GetDateDataFromDb(this, "asc").execute()
                     mDatesFlag = true
+                    DateSort.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_down, 0)
                 } else {
                     GetDateDataFromDb(this, "desc").execute()
                     mDatesFlag = false
+                    DateSort.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_arrow_up, 0)
                 }
             } catch (e: java.lang.Exception) {
                 e.stackTrace

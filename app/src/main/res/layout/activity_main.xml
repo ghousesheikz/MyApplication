@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".view.activity.MainActivity">
 
     <RelativeLayout
@@ -16,17 +17,23 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:id="@+id/RatingSort"
+
             android:text="Rating"
+            android:textColor="@color/white"
+            android:layout_margin="@dimen/dp_5"
+            android:background="@drawable/button_background"
             android:layout_toLeftOf="@id/DateSort"
-            android:layout_height="wrap_content" />
+            android:layout_height="@dimen/_35dp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:id="@+id/DateSort"
             android:text="Date"
-            android:layout_marginLeft="@dimen/dp_8"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/white"
+            android:background="@drawable/button_background"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_height="@dimen/_35dp" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
