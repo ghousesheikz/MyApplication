@@ -26,7 +26,6 @@ class CategoryActivity : AppCompatActivity() {
     private lateinit var CategoryiewModel: CategoryViewModel
     private lateinit var ProductViewModel: ProductViewModel
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
