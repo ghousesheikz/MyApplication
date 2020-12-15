@@ -3,26 +3,26 @@ package com.test.myapplication.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.test.myapplication.datamodel.MovieDetailsResponse
+import com.test.myapplication.datamodel.CategoryDetailsResponse
 import com.tvsmotor.fivestvsapp.network.ServiceBuilder
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class MainViewModel : ViewModel() {
+class CategoryViewModel : ViewModel() {
 
-    var movieDetailsList: MutableLiveData<MovieDetailsResponse> = MutableLiveData()
+    var categoryDetailsList: MutableLiveData<CategoryDetailsResponse> = MutableLiveData()
 
 
 
-    fun fetchDealerDetails(api_key: String?,language: String?,page: Int) {
+    fun fetchCategoryDetails() {
         val compositeDisposable = CompositeDisposable()
         compositeDisposable.add(
-            ServiceBuilder.buildService().getMovieDetails(api_key,language,page)
+            ServiceBuilder.buildService().getCategoryDetails()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ response ->
-                    movieDetailsList.value = response
+                    categoryDetailsList.value = response
 
                 }, {it->
                     Log.e("error",it.toString())

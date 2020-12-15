@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MyApplication</string>
     <string name="API_KEY">34a0ba8f9e880456c42eaa1b2cd21f9f</string>
+    <string name="in_stock">In Stock</string>
+    <string name="filter">Filter</string>
+    <string name="product_filter">Product Filter</string>
+    <string name="apply">APPLY</string>
 </resources>

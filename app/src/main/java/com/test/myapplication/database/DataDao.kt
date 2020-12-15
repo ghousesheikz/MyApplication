@@ -21,15 +21,19 @@ interface DataDao {
     @Update
     fun update(task: ModelSaveData?)
 
-    @Query("SELECT * FROM ModelSaveData ORDER BY voteAverage ASC")
-    fun getAscendingList(): List<ModelSaveData?>?
+    @Query("SELECT * FROM ModelSaveData WHERE category=:categoryid")
+    fun getDatabyCategoryid(categoryid: String?): List<ModelSaveData?>?
 
-    @Query("SELECT * FROM ModelSaveData ORDER BY voteAverage DESC")
-    fun getDescendingList(): List<ModelSaveData?>?
 
-    @Query("SELECT * FROM ModelSaveData ORDER BY releaseDate ASC")
-    fun getAscReleaseDates(): List<ModelSaveData?>?
+    @Query("SELECT * FROM ModelSaveData WHERE price BETWEEN :price_low AND :price_high AND quantity>0  AND category=:categoryid")
+    fun getDatabypriceandstock(price_low:String?,price_high:String?,categoryid: String?): List<ModelSaveData?>?
 
-    @Query("SELECT * FROM ModelSaveData ORDER BY releaseDate DESC")
-    fun getDescReleaseDates(): List<ModelSaveData?>?
+    @Query("SELECT * FROM ModelSaveData WHERE price BETWEEN :price_low AND :price_high AND quantity=0  AND category=:categoryid")
+    fun getDatabypriceandoutofstock(price_low:String?,price_high:String?,categoryid: String?): List<ModelSaveData?>?
+
+
+    @Query("SELECT MAX(price) FROM ModelSaveData")
+    fun getmaxPrice(): Int?
+
+
 }
